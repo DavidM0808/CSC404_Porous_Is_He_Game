@@ -1984,7 +1984,6 @@ GameObject:
   - component: {fileID: 1127404423}
   - component: {fileID: 1127404421}
   - component: {fileID: 1127404424}
-  - component: {fileID: 1127404425}
   m_Layer: 5
   m_Name: Level0
   m_TagString: Untagged
@@ -2091,27 +2090,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelName: Tutorial
---- !u!95 &1127404425
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1127404419}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d3538f0c0c139e04cb5bc9ee3d4a7085, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1207723587
 GameObject:
   m_ObjectHideFlags: 0
@@ -2636,7 +2614,6 @@ GameObject:
   - component: {fileID: 1550504750}
   - component: {fileID: 1550504749}
   - component: {fileID: 1550504748}
-  - component: {fileID: 1550504747}
   m_Layer: 5
   m_Name: Level3
   m_TagString: Untagged
@@ -2667,27 +2644,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!95 &1550504747
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1550504745}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d3538f0c0c139e04cb5bc9ee3d4a7085, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &1550504748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2777,7 +2733,6 @@ GameObject:
   - component: {fileID: 1583514285}
   - component: {fileID: 1583514284}
   - component: {fileID: 1583514283}
-  - component: {fileID: 1583514282}
   m_Layer: 5
   m_Name: Level2
   m_TagString: Untagged
@@ -2808,27 +2763,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!95 &1583514282
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1583514280}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d3538f0c0c139e04cb5bc9ee3d4a7085, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &1583514283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3320,6 +3254,7 @@ GameObject:
   - component: {fileID: 1790593782}
   - component: {fileID: 1790593781}
   - component: {fileID: 1790593780}
+  - component: {fileID: 1790593783}
   m_Layer: 5
   m_Name: Back
   m_TagString: Untagged
@@ -3442,6 +3377,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1790593778}
   m_CullTransparentMesh: 1
+--- !u!114 &1790593783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1790593778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22b17c8fcb2281545b8f2ce582478397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  screen: 
 --- !u!1 &1835403103
 GameObject:
   m_ObjectHideFlags: 0
@@ -3454,7 +3402,6 @@ GameObject:
   - component: {fileID: 1835403108}
   - component: {fileID: 1835403109}
   - component: {fileID: 1835403106}
-  - component: {fileID: 1835403105}
   m_Layer: 5
   m_Name: Level1
   m_TagString: Untagged
@@ -3485,27 +3432,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!95 &1835403105
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1835403103}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d3538f0c0c139e04cb5bc9ee3d4a7085, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &1835403106
 MonoBehaviour:
   m_ObjectHideFlags: 0
