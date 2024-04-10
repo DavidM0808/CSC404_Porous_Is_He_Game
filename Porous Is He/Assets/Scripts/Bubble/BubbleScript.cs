@@ -16,11 +16,21 @@ public class BubbleScript : MonoBehaviour
     private Vector3 tempPosition = new Vector3 ();
     public bool popped = false;
 
+
+    private AudioSource _audio;
+    private Renderer _renderer;
+    private Collider _collider;
+    private BubbleCountingScript bubbleCountingScript;
+
     // Start is called before the first frame update
     public void Start()
     {
-        GetComponent<Renderer>().enabled = true;
-        GetComponent<Collider>().enabled = true;
+        _audio = GetComponent<AudioSource> ();
+        _renderer = GetComponent<Renderer> ();
+        _collider = GetComponent<Collider> ();
+
+        _renderer.enabled = true;
+        _collider.enabled = true;
         tempPosition = transform.position;
         posOffset = tempPosition;
     }
@@ -39,20 +49,16 @@ public class BubbleScript : MonoBehaviour
         if (popped == false && other.transform.gameObject.CompareTag("Player"))
         {
 
-            GetComponent<AudioSource>().Play();
+            _audio.Play();
+            _renderer.enabled = false;
+            _collider.enabled = false;
 
-            GetComponent<Renderer>().enabled = false;
-            
-            GetComponent<Collider>().enabled = false;
-            
-            other.gameObject.GetComponent<BubbleCountingScript>().bubbles++;
-
-            other.gameObject.GetComponent<BubbleCountingScript>().bubbleText.text = 
-            other.gameObject.GetComponent<BubbleCountingScript>().bubbles.ToString();
+            bubbleCountingScript = other.gameObject.GetComponent<BubbleCountingScript>();
+            bubbleCountingScript.bubbles++;
+            bubbleCountingScript.bubbleText.text = bubbleCountingScript.bubbles.ToString();
 
             popped = true;
 
         }
-
     }
 }
