@@ -131,7 +131,7 @@ public class MoverScript : MonoBehaviour
             lastGrounded = Time.time;
         }
 
-        if (landingHitbox.IsGrounded() && Time.time - lastJumped > 0.2f)
+        if (landingHitbox.IsGrounded() && Time.time - lastJumped > 0.1f)
         {
             StopFallAnim();
         }
@@ -256,23 +256,25 @@ public class MoverScript : MonoBehaviour
 
     private void PlayFallAnim(bool doJump, bool doDoubleJump)
     {
-        //if (doDoubleJump)
-        //{
-        //    playerAnimator.SetBool("IsDoubleJumping", true);
-        //}
+        if (doDoubleJump)
+        {
+            playerAnimator.SetBool("IsDoubleJumping", true);
+        }
 
-        //if (doJump)
-        //{
-        //    playerAnimator.SetBool("IsJumping", true);
-        //}
+        if (doJump)
+        {
+            playerAnimator.SetBool("IsJumping", true);
+        }
 
-        //playerAnimator.SetBool("IsFalling", true);
+        playerAnimator.SetBool("IsFalling", true);
     }
     private void StopFallAnim()
     {
-        //playerAnimator.SetBool("IsDoubleJumping", false);
-        //playerAnimator.SetBool("IsJumping", false);
-        //playerAnimator.SetBool("IsFalling", false);
+        playerAnimator.SetBool("IsDoubleJumping", false);
+        playerAnimator.SetBool("IsJumping", false);
+        playerAnimator.SetBool("IsFalling", false);
+
+        playerAnimator.SetBool("IsBurning", false);
     }
 
 
@@ -386,6 +388,8 @@ public class MoverScript : MonoBehaviour
 
     public void KnockBack(Vector3 moveDirection, bool propelUp)
     {
+        lastJumped = Time.time;
+
         float knockbackMulti = 1f;
         if (liquidTracker.GetLiquidAmountFromIndex(1) > 0)
         {
@@ -405,6 +409,8 @@ public class MoverScript : MonoBehaviour
             direction.y = knockBackForce * knockbackMulti;
             playerVelocity = knockBackForce * knockbackMulti;
         }
+
+        playerAnimator.SetBool("IsBurning", true);
     }
     private void OnDestroy()
     {
