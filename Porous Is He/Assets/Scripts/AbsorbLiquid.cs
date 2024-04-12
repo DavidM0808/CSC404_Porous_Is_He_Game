@@ -18,6 +18,8 @@ public class AbsorbLiquid : MonoBehaviour
 
     public GameObject interactUI;
 
+    [SerializeField] private LiquidBarsUI ui;
+
     void Start()
     {
         playerInputActions = new PlayerInputActions();
@@ -76,6 +78,10 @@ public class AbsorbLiquid : MonoBehaviour
     {
         if (PauseMenu.isPaused) return;
         absorbing = true;
+        if (touchingLiquid && liquidTracker.FullLiquid(liquidSource.liquidType)){
+            ui.ShakeLiquidBar(liquidSource.liquidType);
+        }
+
         if ((touchingLiquid && !liquidTracker.FullLiquid(liquidSource.liquidType)) || 
             (onFillableCup && fillableCup.GetLiquidAmount() > 0 && !liquidTracker.FullLiquid(fillableCup.GetSurfaceLiquidType())))
         {

@@ -41,6 +41,7 @@ public class PauseMenu : MonoBehaviour
         playerInputActions = new PlayerInputActions();
         playerInputActions.GameManager.Enable();
         playerInputActions.GameManager.Pause.started += PauseGame;
+        playerInputActions.GameManager.Cancel.started += ClosePause;
 
         Scene scene = SceneManager.GetActiveScene();
         if (scene.name != "MainMenu")
@@ -67,6 +68,14 @@ public class PauseMenu : MonoBehaviour
     public void PauseGame(InputAction.CallbackContext context)
     {
         PauseGame();
+    }
+
+    public void ClosePause(InputAction.CallbackContext context)
+    {
+        if (isPaused)
+        {
+            ResumeGame(true);
+        }
     }
 
     public void PauseGame()
