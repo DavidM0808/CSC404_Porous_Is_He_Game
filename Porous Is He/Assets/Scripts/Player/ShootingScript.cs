@@ -36,8 +36,8 @@ public class ShootingScript : MonoBehaviour
     private float dryFireStart = 0f;
     private int dryFireTimesInRow = 0;
 
-    private float lastShoot = 0;
     [SerializeField] private Animator playerAnimator;
+    [SerializeField] private LiquidBarsUI ui;
 
     void Start()
     {
@@ -101,8 +101,12 @@ public class ShootingScript : MonoBehaviour
             }
         } else if (shooting && !CanShoot())
         {
+            if (liquidTracker.GetSelectedLiquid().liquidAmount <= 0 && !PoCombust.isOnFire && aiming)
+            {
+                ui.ShakeLiquidBar(liquidTracker.GetSelectedLiquid().liquidType);
+            }
             transform.GetComponent<AudioSource>().Stop();
-            if (Time.time - lastFailedShot >= 0.5f && !dryFired)
+            if (Time.time - lastFailedShot >= 0.5f && !dryFired && aiming)
             {
                 dryFired = true;
                 dryFireTimesInRow++;

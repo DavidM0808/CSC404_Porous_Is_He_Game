@@ -12,6 +12,9 @@ public class LiquidBarsUI : MonoBehaviour
     [SerializeField] private Slider slider1;
     [SerializeField] private Slider slider2;
 
+    private Animator slider0Animator;
+    private Animator slider1Animator;
+
     private float scaleModifier;
     private float valueIncrement = 0.01f;
     private float targetAmount;
@@ -40,6 +43,9 @@ public class LiquidBarsUI : MonoBehaviour
         {
             slider2.gameObject.SetActive(true);
         }
+
+        slider0Animator = slider0.GetComponent<Animator>();
+        slider1Animator = slider1.GetComponent<Animator>();
     }
 
 
@@ -130,6 +136,25 @@ public class LiquidBarsUI : MonoBehaviour
     private void OnDestroy()
     {
         playerInputActions.Player.Disable();
+    }
+
+    public void ShakeLiquidBar(string liquidType)
+    {
+
+        if (liquidType == "Water")
+        {
+            if (!slider0Animator.GetBool("shake") && !slider0Animator.GetCurrentAnimatorStateInfo(0).IsName("waterBarShake"))
+            {
+                slider0Animator.SetTrigger("shake");
+            }
+        } 
+        else if (liquidType == "Oil")
+        {
+            if (!slider1Animator.GetBool("shake") && !slider1Animator.GetCurrentAnimatorStateInfo(0).IsName("oilBarShake"))
+            {
+                slider1Animator.SetTrigger("shake");
+            }
+        }
     }
 }
 

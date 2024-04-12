@@ -67,6 +67,12 @@ public class LiquidTracker : MonoBehaviour
         float tempAmount = playerLiquids[liquidIndex].liquidAmount + liquid.liquidAmount;
         playerLiquids[liquidIndex].liquidAmount = (tempAmount > maxLiquidAmount) ? maxLiquidAmount : tempAmount;
 
+        if (tempAmount > maxLiquidAmount)
+        {
+            // shake liquid bar when its maxes out
+            ui.ShakeLiquidBar(liquid.liquidType);
+        }
+
         return playerLiquids[liquidIndex].liquidAmount - beforeAmount;
 
         //if (liquid.liquidType.Equals(playerLiquids[liquidSelectionIndex].liquidType))
