@@ -1489,6 +1489,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amountAbsorbed: 0.05
   interactUI: {fileID: 0}
+  ui: {fileID: 0}
 --- !u!114 &5067246646270891941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2479,6 +2480,7 @@ MonoBehaviour:
   shootAmount: 0.08
   timeBetweenShoot: 0.06
   playerAnimator: {fileID: 4987792093485968824}
+  ui: {fileID: 0}
 --- !u!114 &2363009287313091517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3384,8 +3386,8 @@ Transform:
   m_GameObject: {fileID: 8806543623579151385}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.7961, z: 0}
-  m_LocalScale: {x: 0.5, y: 2.7920923, z: 0.5}
+  m_LocalPosition: {x: 0, y: -0.9953, z: 0}
+  m_LocalScale: {x: 0.5, y: 1.1905482, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7510097735949665148}
