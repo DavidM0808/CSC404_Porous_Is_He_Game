@@ -12,6 +12,9 @@ public class AbsorbLiquid : MonoBehaviour
     private LiquidSource liquidSource;
     private LiquidTracker liquidTracker;
 
+    [SerializeField] private ParticleSystem waterEmitter;
+    [SerializeField] private ParticleSystem oilEmitter;
+
     private bool absorbing = false;
     private bool onFillableCup = false;
     private FillableCup fillableCup;
@@ -102,6 +105,15 @@ public class AbsorbLiquid : MonoBehaviour
         //liquidTracker.RemoveSelectedLiquid(liquidTracker.GetSelectedLiquid().liquidAmount);
         if (liquidTracker.CalcWeight() > 0)
         {
+            if (liquidTracker.GetLiquidAmountFromIndex(0) > 0)
+            {
+                waterEmitter.Emit(12);
+            }
+            if (liquidTracker.GetLiquidAmountFromIndex(1) > 0)
+            {
+                oilEmitter.Emit(12);
+            }
+
             liquidTracker.RemoveAllLiquid();
             gameObject.GetComponent<PoSoundManager>().PlaySound("Release");
         }
