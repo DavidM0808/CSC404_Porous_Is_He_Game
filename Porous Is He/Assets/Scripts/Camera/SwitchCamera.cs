@@ -14,6 +14,7 @@ public class SwitchCamera : MonoBehaviour
     public CinemachineVirtualCamera aimCamera;
     private Transform projectile;
     public GameObject projectionLine;
+    private CinemachineBrain cameraBrain;
 
     //public Slider sensitivitySlider;
     //public Slider aimSensitivitySlider;
@@ -32,6 +33,11 @@ public class SwitchCamera : MonoBehaviour
 
     private PlayerInputActions playerInputActions;
 
+
+    private MoverScript moverScript;
+    private ShootingScript shootingScript;
+    private Transparency transparency;
+
     void Start()
     {
         playerInputActions = new PlayerInputActions();
@@ -46,7 +52,14 @@ public class SwitchCamera : MonoBehaviour
         projectionLine.SetActive(false);
 
         projectile = transform.Find("ProjectileSpawn");
-    }
+
+        cameraBrain = Camera.main.GetComponent<CinemachineBrain>();
+
+        moverScript = gameObject.GetComponent<MoverScript>();
+        shootingScript = projectile.GetComponent<ShootingScript>();
+        transparency = gameObject.GetComponent<Transparency>();
+
+}
 
     void Update()
     {
@@ -54,10 +67,10 @@ public class SwitchCamera : MonoBehaviour
         // should have a GameManager game object that handles the game control/pause
         if (PauseMenu.isPaused) 
         {
-            Camera.main.GetComponent<CinemachineBrain>().enabled = false;
+            cameraBrain.enabled = false;
             return;
         }
-        Camera.main.GetComponent<CinemachineBrain>().enabled = true;
+        cameraBrain.enabled = true;
         if (aiming)
         {
             AimCamera();
@@ -111,9 +124,9 @@ public class SwitchCamera : MonoBehaviour
         projectionLine.SetActive(true);
 
         // Disable movement, enable shooting
-        gameObject.GetComponent<MoverScript>().aiming = true;
-        projectile.GetComponent<ShootingScript>().aiming = true;
-        gameObject.GetComponent<Transparency>().aiming = true;
+        moverScript.aiming = true;
+        shootingScript.aiming = true;
+        transparency.aiming = true;
     }
 
     private void StopAim(InputAction.CallbackContext context)
@@ -138,9 +151,9 @@ public class SwitchCamera : MonoBehaviour
     private void Switch()
     {
         if (aiming) return;
-        gameObject.GetComponent<MoverScript>().aiming = false;
-        projectile.GetComponent<ShootingScript>().aiming = false;
-        gameObject.GetComponent<Transparency>().aiming = false;
+        moverScript.aiming = false;
+        shootingScript.aiming = false;
+        transparency.aiming = false;
     }
 
     private void AimCamera()

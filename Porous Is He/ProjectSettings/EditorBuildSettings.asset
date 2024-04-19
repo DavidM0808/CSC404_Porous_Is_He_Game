@@ -12,28 +12,13 @@ EditorBuildSettings:
     path: Assets/Scenes/LevelSelect.unity
     guid: 9439d7d57e2e4b04a9898d436e7d19ea
   - enabled: 1
-    path: Assets/Scenes/Tutorial.unity
-    guid: ff62474e537db7044a961954c72adc48
-  - enabled: 1
     path: Assets/Scenes/Level1.unity
-    guid: 86ab2dc8182e4f24ebca9567a994377b
+    guid: a50565467714a8e42bf1a7d96d7ec7f4
   - enabled: 1
     path: Assets/Scenes/Level2.unity
-    guid: dfc556db4b3f4364f9637b0a06b6b0ab
+    guid: 95305aaf53a5a9441a8c8c79b4c375e4
   - enabled: 1
     path: Assets/Scenes/Level3.unity
-    guid: cd14d4973e14bae49bd4481693dd43ff
-  - enabled: 0
-    path: Assets/Scenes/GameScene.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 0
-    path: Assets/Scenes/Level1.unity
-    guid: 86ab2dc8182e4f24ebca9567a994377b
-  - enabled: 0
-    path: Assets/Scenes/GameOver.unity
-    guid: 3435bb7c6900e254cb56a734d597a8c4
-  - enabled: 0
-    path: Assets/Scenes/Level3.unity
-    guid: cd14d4973e14bae49bd4481693dd43ff
+    guid: dc4ac91a99c1db24991c7f47c87d129d
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: fb619fabfe43f9b4ebd8d058322c151e, type: 2}
